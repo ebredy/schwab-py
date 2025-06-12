@@ -246,14 +246,14 @@ def client_from_login_flow(api_key, app_secret, callback_url, token_path,
     # Start the server
     parsed = urllib.parse.urlparse(callback_url)
 
-    if parsed.hostname != '127.0.0.1':
-        # TODO: document this error
-        raise ValueError(
-                ('Disallowed hostname {}. client_from_login_flow only allows '+
-                 'callback URLs with hostname 127.0.0.1. See here for ' +
-                 'more information: https://schwab-py.readthedocs.io/en/' +
-                 'latest/auth.html#callback-url-advisory').format(
-                     parsed.hostname))
+    # if parsed.hostname != '127.0.0.1':
+    #     # TODO: document this error
+    #     raise ValueError(
+    #             ('Disallowed hostname {}. client_from_login_flow only allows '+
+    #              'callback URLs with hostname 127.0.0.1. See here for ' +
+    #              'more information: https://schwab-py.readthedocs.io/en/' +
+    #              'latest/auth.html#callback-url-advisory').format(
+    #                  parsed.hostname))
 
     callback_port = parsed.port if parsed.port else 443
     callback_path = parsed.path if parsed.path else '/'
